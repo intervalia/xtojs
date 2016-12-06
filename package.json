@@ -1,0 +1,32 @@
+{
+  "name": "xtojs",
+  "version": "1.0.0",
+  "description": "A type checking module for JavaScript/ES6 in <1KB.",
+  "author": "Michael G Collins",
+  "contributors": [
+    {
+      "name": "Michael G Collins",
+      "email": "intervalia@gmail.com",
+      "twitter": "@MikeCollinsUT"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/intervalia/xtojs",
+  "main": "dist/xto.js",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-header": "^1.8.8",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jasmine-core": "^2.5.2",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "karma": "^1.3.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-spec-reporter": "0.0.26",
+    "rimraf": "^2.5.4"
+  }
+}
