@@ -78,14 +78,14 @@ xto.instance(new CoolObj()); // 'CoolObj'
 ## Installing with npm
 
 ```shell
-npm install xto.js
+npm install xtojs
 ```
 
 ## Installing with Bower
 Use the repository hook:
 
 ```shell
-bower install https://github.com/intervalia/xto.git
+bower install https://github.com/intervalia/xtojs.git
 ```
 
 ## Manual installation
@@ -113,6 +113,9 @@ bower install https://github.com/intervalia/xto.git
 * Always run Gulp.
 
 ## Release history
+
+- 1.1.0 - Dec 6, 2016
+  - Correcting Docs. And correcting my NPM deployment.
 
 - 1.0.0 - Dec 6, 2016
   - Initial release

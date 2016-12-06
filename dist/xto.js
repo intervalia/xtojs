@@ -1,4 +1,4 @@
-/* v1.0.0|(c)2016 Michael G Collins|https://github.com/intervalia/xto */
+/* v1.1.0|(c)2016 Michael G Collins|https://github.com/intervalia/xtojs */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory);
