@@ -5,6 +5,7 @@ node_js:
   - "6.9.2"
 install:
   - npm install -g coveralls
+before_script:
   - npm install -g gulp
 script: gulp
 after_success:
