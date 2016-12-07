@@ -8,7 +8,7 @@ describe('xto', function () {
     it('should return a true if an Array', function () {
       expect(xto.isArray([])).toBe(true);
       expect(xto.isArray(new Array())).toBe(true);
-      expect(xto.isArray(new Int16Array())).toBe(true);
+      expect(xto.isArray(new Int16Array())).toBe(false);
       expect(xto.isArray({})).toBe(false);
       expect(xto.isArray(new Object())).toBe(false);
       expect(xto.isArray(null)).toBe(false);
@@ -31,6 +31,37 @@ describe('xto', function () {
       }
       if (typeof Promise === 'object') {
         expect(xto.isArray(new Promise(function(){}))).toBe(false);
+      }
+    });
+  });
+
+  describe('xto.isAnyArray', function () {
+    it('should return a true if any Array', function () {
+      expect(xto.isAnyArray([])).toBe(true);
+      expect(xto.isAnyArray(new Array())).toBe(true);
+      expect(xto.isAnyArray(new Int16Array())).toBe(true);
+      expect(xto.isAnyArray({})).toBe(false);
+      expect(xto.isAnyArray(new Object())).toBe(false);
+      expect(xto.isAnyArray(null)).toBe(false);
+      expect(xto.isAnyArray()).toBe(false);
+      expect(xto.isAnyArray(true)).toBe(false);
+      expect(xto.isAnyArray(Boolean(false))).toBe(false);
+      expect(xto.isAnyArray(10)).toBe(false);
+      expect(xto.isAnyArray(Number(10))).toBe(false);
+      expect(xto.isAnyArray('')).toBe(false);
+      expect(xto.isAnyArray(String(''))).toBe(false);
+      expect(xto.isAnyArray(new Date())).toBe(false);
+      expect(xto.isAnyArray(new Error())).toBe(false);
+      expect(xto.isAnyArray(/test/g)).toBe(false);
+      expect(xto.isAnyArray(function(){})).toBe(false);
+      if (typeof Map === 'object') {
+        expect(xto.isAnyArray(new Map())).toBe(false);
+        expect(xto.isAnyArray(new Set())).toBe(false);
+        expect(xto.isAnyArray(new WeakMap())).toBe(false);
+        expect(xto.isAnyArray(new WeakSet())).toBe(false);
+      }
+      if (typeof Promise === 'object') {
+        expect(xto.isAnyArray(new Promise(function(){}))).toBe(false);
       }
     });
   });
@@ -409,19 +440,55 @@ describe('xto', function () {
     });
   }
 
-  describe('xto.instance', function () {
+  describe('xto.typeof', function () {
     it('should return proper type', function () {
+      function TestObj() {
+        this.val = 10;
+      }
+      expect(xto.typeof([])).toBe('array');
+      expect(xto.typeof(new Array())).toBe('array');
+      // Phantom does not correctly return the name of 'Int16Array'
+      //expect(xto.typeof(new Int16Array())).toBe('Int16Array');
+      expect(xto.typeof({})).toBe('object');
+      expect(xto.typeof(new Object())).toBe('object');
+      expect(xto.typeof(null)).toBe('null');
+      expect(xto.typeof()).toBe('undefined');
+      expect(xto.typeof(true)).toBe('boolean');
+      expect(xto.typeof(Boolean(false))).toBe('boolean');
+      expect(xto.typeof(10)).toBe('number');
+      expect(xto.typeof(Number(10))).toBe('number');
+      expect(xto.typeof('')).toBe('string');
+      expect(xto.typeof(String(''))).toBe('string');
+      expect(xto.typeof(new Date())).toBe('date');
+      expect(xto.typeof(new Error())).toBe('error');
+      expect(xto.typeof(/test/g)).toBe('regexp');
+      expect(xto.typeof(function(){})).toBe('function');
+      expect(xto.typeof(new TestObj())).toBe('object');
+      if (typeof Map === 'object') {
+        expect(xto.typeof(new Map())).toBe('map');
+        expect(xto.typeof(new Set())).toBe('set');
+        expect(xto.typeof(new WeakMap())).toBe('weakmap');
+        expect(xto.typeof(new WeakSet())).toBe('weakset');
+      }
+      if (typeof Promise === 'object') {
+        expect(xto.typeof(new Promise(function(){}))).toBe('promise');
+      }
+    });
+  });
+
+  describe('xto.instance', function () {
+    it('should return proper instance', function () {
       function TestObj() {
         this.val = 10;
       }
       expect(xto.instance([])).toBe('Array');
       expect(xto.instance(new Array())).toBe('Array');
-      // Phantom does not correctly return the name of 'Int16Array'
+      // PhantomJS does not correctly return the name of 'Int16Array'
       //expect(xto.instance(new Int16Array())).toBe('Int16Array');
       expect(xto.instance({})).toBe('Object');
       expect(xto.instance(new Object())).toBe('Object');
-      expect(xto.instance(null)).toBe('null');
-      expect(xto.instance()).toBe('undefined');
+      expect(xto.instance(null)).toBe('Null');
+      expect(xto.instance()).toBe('Undefined');
       expect(xto.instance(true)).toBe('Boolean');
       expect(xto.instance(Boolean(false))).toBe('Boolean');
       expect(xto.instance(10)).toBe('Number');
@@ -441,6 +508,42 @@ describe('xto', function () {
       }
       if (typeof Promise === 'object') {
         expect(xto.instance(new Promise(function(){}))).toBe('Promise');
+      }
+    });
+  });
+
+  describe('xto.instances', function () {
+    it('should return proper instances', function () {
+      function TestObj() {
+        this.val = 10;
+      }
+      expect(xto.instances([])).toEqual(['Array', 'Object']);
+      expect(xto.instances(new Array())).toEqual(['Array', 'Object']);
+      // PhantomJS does not correctly return the name of 'Int16Array'
+      //expect(xto.instances(new Int16Array())).toEqual(['Int16Array, 'TypedArray', 'Object']);
+      expect(xto.instances({})).toEqual(['Object']);
+      expect(xto.instances(new Object())).toEqual(['Object']);
+      expect(xto.instances(null)).toEqual(['Null']);
+      expect(xto.instances()).toEqual(['Undefined']);
+      expect(xto.instances(true)).toEqual(['Boolean', 'Object']);
+      expect(xto.instances(Boolean(false))).toEqual(['Boolean', 'Object']);
+      expect(xto.instances(10)).toEqual(['Number', 'Object']);
+      expect(xto.instances(Number(10))).toEqual(['Number', 'Object']);
+      expect(xto.instances('')).toEqual(['String', 'Object']);
+      expect(xto.instances(String(''))).toEqual(['String', 'Object']);
+      expect(xto.instances(new Date())).toEqual(['Date', 'Object']);
+      expect(xto.instances(new Error())).toEqual(['Error', 'Object']);
+      expect(xto.instances(/test/g)).toEqual(['RegExp', 'Object']);
+      expect(xto.instances(function(){})).toEqual(['Function', 'Object']);
+      expect(xto.instances(new TestObj())).toEqual(['TestObj', 'Object']);
+      if (typeof Map === 'object') {
+        expect(xto.instances(new Map())).toEqual(['Map', 'Object']);
+        expect(xto.instances(new Set())).toEqual(['Set', 'Object']);
+        expect(xto.instances(new WeakMap())).toEqual(['WeakMap', 'Object']);
+        expect(xto.instances(new WeakSet())).toEqual(['WeakSet', 'Object']);
+      }
+      if (typeof Promise === 'object') {
+        expect(xto.instances(new Promise(function(){}))).toEqual(['Promise', 'Object']);
       }
     });
   });
