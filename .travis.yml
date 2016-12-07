@@ -3,6 +3,10 @@ node_js:
   - "0.10"
   - "4.7.0"
   - "6.9.2"
+install:
+  - pip install coveralls
 before_script:
   - npm install -g gulp
 script: gulp
+after_success:
+  coveralls
