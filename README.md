@@ -1,4 +1,9 @@
-# xto.js [![Build Status](https://travis-ci.org/intervalia/xto.svg)](https://travis-ci.org/intervalia/xto)
+# xto.js
+
+[![NPM version](http://img.shields.io/npm/v/xtojs.svg)](https://npmjs.org/package/xtojs)
+[![Downloads](http://img.shields.io/npm/dm/xtojs.svg)](https://npmjs.org/package/xtojs)
+[![Support us](http://img.shields.io/gittip/intervalia.svg)](https://www.gittip.com/intervalia/)
+[![Build Status](https://travis-ci.org/intervalia/xtojs.svg)](https://travis-ci.org/intervalia/xtojs)
 
 A type checking module for JavaScript/ES6 in &lt;1KB.
 
@@ -113,6 +118,9 @@ bower install https://github.com/intervalia/xtojs.git
 * Always run Gulp.
 
 ## Release history
+
+- 1.1.2 - Dec 6, 2016
+  - Correcting Docs and changing version to allow NPM publish.
 
 - 1.1.0 - Dec 6, 2016
   - Correcting Docs. And correcting my NPM deployment.
