@@ -4,7 +4,7 @@ module.exports = function (config) {
     basePath : '',
     browsers : ['PhantomJS'],
     coverageReporter: {
-      type : 'html',
+      type : 'lcov',
       dir : '../coverage/'
     },
     files: [
@@ -15,12 +15,13 @@ module.exports = function (config) {
     plugins : [
       'karma-spec-reporter',
       'karma-coverage',
+      'karma-coveralls',
       'karma-phantomjs-launcher',
       'karma-jasmine'
     ],
     preprocessors: {
       '../src/**/*.js': ['coverage']
     },
-    reporters : ['spec','coverage']
+    reporters : ['spec','coverage', 'coveralls']
   });
 };
