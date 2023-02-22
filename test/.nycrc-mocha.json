@@ -1,0 +1,30 @@
+{
+  "all": true,
+  "branches": 95,
+  "cache": false,
+  "check-coverage": false,
+  "eager": true,
+  "exclude": [
+  ],
+  "extension": [],
+  "functions": 95,
+  "include": [
+    "dist/cjs/xto.js"
+  ],
+  "instrument": true,
+  "lines": 95,
+  "per-file": true,
+  "report-dir": "coverage/mocha",
+  "reporter": [
+    "lcov",
+    "text-summary"
+  ],
+  "require": [],
+  "statements": 95,
+  "watermarks": {
+    "lines": [95, 100],
+    "functions": [95, 100],
+    "branches": [95, 100],
+    "statements": [95, 100]
+  }
+}

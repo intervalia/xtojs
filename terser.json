@@ -1,0 +1,16 @@
+{
+  "compress": {
+    "unsafe": true,
+    "ecma": 2023
+  },
+  "format": {
+    "ecma": 2023,
+    "preamble": "/*v2.1.0|(c)2016-2023 Michael G Collins|https://github.com/intervalia/xtojs*/",
+    "semicolons": false
+  },
+  "mangle": {
+    "toplevel": true
+  },
+  "keep_classnames": false,
+  "keep_fnames": false
+}
