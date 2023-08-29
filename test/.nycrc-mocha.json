@@ -2,14 +2,15 @@
   "all": true,
   "branches": 95,
   "cache": false,
-  "check-coverage": false,
+  "check-coverage": true,
   "eager": true,
   "exclude": [
+    "test/**/*.mocha.js"
   ],
   "extension": [],
   "functions": 95,
   "include": [
-    "dist/cjs/xto.js"
+    "test/**/*.js"
   ],
   "instrument": true,
   "lines": 95,
@@ -22,9 +23,9 @@
   "require": [],
   "statements": 95,
   "watermarks": {
-    "lines": [95, 100],
-    "functions": [95, 100],
-    "branches": [95, 100],
-    "statements": [95, 100]
+    "lines": [95,100],
+    "functions": [95,100],
+    "branches": [95,100],
+    "statements": [95,100]
   }
 }

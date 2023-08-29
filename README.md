@@ -2,8 +2,6 @@
 
 [![NPM version](http://img.shields.io/npm/v/xtojs.svg)](https://npmjs.org/package/xtojs)
 [![Downloads](http://img.shields.io/npm/dm/xtojs.svg)](https://npmjs.org/package/xtojs)
-[![Build Status](https://travis-ci.org/intervalia/xtojs.svg)](https://travis-ci.org/intervalia/xtojs)
-<!--[![Coverage Status](https://coveralls.io/repos/github/intervalia/xtojs/badge.svg?branch=master)](https://coveralls.io/github/intervalia/xtojs?branch=master)-->
 
 An extensive type checking module for JavaScript/ES6 in ~~&lt;2KB~~. **Now less than 1KB!**
 
@@ -242,6 +240,11 @@ I use **semver** for my versioning. If I increase the major version it is due to
 
 ## Release history
 
+- 2.2.0 - Aug 29, 2023 (952 bytes minified)
+  - Fixed package.json to load proper file for require and import
+  - Removed coveralls and travis related files and dependancies.
+  - Updated external packages.
+
 - 2.1.0 - Feb 22, 2023 (952 bytes minified)
   - Added CJS and ESM versions of the built code
   - Converted all of the code to ES6+ greatly reducing its size
@@ -258,7 +261,6 @@ I use **semver** for my versioning. If I increase the major version it is due to
     - `BigInt64Array`
     - `BigUint64Array`
 
----
 - 2.0.0 - Dec 7, 2016 (1,170 bytes minified)
   - Added `instances` and reduced code size where possible.
   - Added `isAnyArray`. Returns `true` for `Array()`, `[]` and all typed arrays.
@@ -271,14 +273,11 @@ I use **semver** for my versioning. If I increase the major version it is due to
 >
 > Version 2.0 includes the function `isAnyArray` to see if an object is either an `Array` or a typed array.
 
----
 - 1.1.2 - Dec 6, 2016
   - Correcting Docs and changing version to allow NPM publish.
 
----
 - 1.1.0 - Dec 6, 2016
   - Correcting Docs. And correcting my NPM deployment.
 
----
 - 1.0.0 - Dec 6, 2016
   - Initial release

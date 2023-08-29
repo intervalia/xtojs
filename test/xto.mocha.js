@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 const { expect } = require('chai');
-const xto = require('../dist/cjs/xto.js');
+const xto = require('./xto.js');
 /**
  * xto.js
  */
@@ -20,6 +20,7 @@ describe('Tests for xto', function () {
       expect(xto.isArray(Number(10))).to.equal(false);
       expect(xto.isArray(10n)).to.equal(false);
       expect(xto.isArray(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isArray(new BigUint64Array(2))).to.equal(false);
       expect(xto.isArray('')).to.equal(false);
       expect(xto.isArray(String(''))).to.equal(false);
       expect(xto.isArray(new Date())).to.equal(false);
@@ -50,6 +51,7 @@ describe('Tests for xto', function () {
       expect(xto.isAnyArray(Number(10))).to.equal(false);
       expect(xto.isAnyArray(10n)).to.equal(false);
       expect(xto.isAnyArray(new BigInt64Array(2))).to.equal(true);
+      expect(xto.isAnyArray(new BigUint64Array(2))).to.equal(true);
       expect(xto.isAnyArray('')).to.equal(false);
       expect(xto.isAnyArray(String(''))).to.equal(false);
       expect(xto.isAnyArray(new Date())).to.equal(false);
@@ -80,6 +82,7 @@ describe('Tests for xto', function () {
       expect(xto.isTypedArray(Number(10))).to.equal(false);
       expect(xto.isTypedArray(10n)).to.equal(false);
       expect(xto.isTypedArray(new BigInt64Array(2))).to.equal(true);
+      expect(xto.isTypedArray(new BigUint64Array(2))).to.equal(true);
       expect(xto.isTypedArray('')).to.equal(false);
       expect(xto.isTypedArray(String(''))).to.equal(false);
       expect(xto.isTypedArray(new Date())).to.equal(false);
@@ -110,6 +113,7 @@ describe('Tests for xto', function () {
       expect(xto.isObject(Number(10))).to.equal(false);
       expect(xto.isObject(10n)).to.equal(false);
       expect(xto.isObject(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isObject(new BigUint64Array(2))).to.equal(false);
       expect(xto.isObject('')).to.equal(false);
       expect(xto.isObject(String(''))).to.equal(false);
       expect(xto.isObject(new Date())).to.equal(false);
@@ -140,6 +144,7 @@ describe('Tests for xto', function () {
       expect(xto.isString(Number(10))).to.equal(false);
       expect(xto.isString(10n)).to.equal(false);
       expect(xto.isString(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isString(new BigUint64Array(2))).to.equal(false);
       expect(xto.isString('')).to.equal(true);
       expect(xto.isString(String(''))).to.equal(true);
       expect(xto.isString(new Date())).to.equal(false);
@@ -170,6 +175,7 @@ describe('Tests for xto', function () {
       expect(xto.isDate(Number(10))).to.equal(false);
       expect(xto.isDate(10n)).to.equal(false);
       expect(xto.isDate(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isDate(new BigUint64Array(2))).to.equal(false);
       expect(xto.isDate('')).to.equal(false);
       expect(xto.isDate(String(''))).to.equal(false);
       expect(xto.isDate(new Date())).to.equal(true);
@@ -200,6 +206,7 @@ describe('Tests for xto', function () {
       expect(xto.isRegExp(Number(10))).to.equal(false);
       expect(xto.isRegExp(10n)).to.equal(false);
       expect(xto.isRegExp(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isRegExp(new BigUint64Array(2))).to.equal(false);
       expect(xto.isRegExp('')).to.equal(false);
       expect(xto.isRegExp(String(''))).to.equal(false);
       expect(xto.isRegExp(new Date())).to.equal(false);
@@ -231,6 +238,7 @@ describe('Tests for xto', function () {
       expect(xto.isSymbol(Number(10))).to.equal(false);
       expect(xto.isSymbol(10n)).to.equal(false);
       expect(xto.isSymbol(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isSymbol(new BigUint64Array(2))).to.equal(false);
       expect(xto.isSymbol('')).to.equal(false);
       expect(xto.isSymbol(String(''))).to.equal(false);
       expect(xto.isSymbol(new Date())).to.equal(false);
@@ -261,6 +269,7 @@ describe('Tests for xto', function () {
       expect(xto.isFunction(Number(10))).to.equal(false);
       expect(xto.isFunction(10n)).to.equal(false);
       expect(xto.isFunction(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isFunction(new BigUint64Array(2))).to.equal(false);
       expect(xto.isFunction('')).to.equal(false);
       expect(xto.isFunction(String(''))).to.equal(false);
       expect(xto.isFunction(new Date())).to.equal(false);
@@ -291,6 +300,7 @@ describe('Tests for xto', function () {
       expect(xto.isBoolean(Number(10))).to.equal(false);
       expect(xto.isBoolean(10n)).to.equal(false);
       expect(xto.isBoolean(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isBoolean(new BigUint64Array(2))).to.equal(false);
       expect(xto.isBoolean('')).to.equal(false);
       expect(xto.isBoolean(String(''))).to.equal(false);
       expect(xto.isBoolean(new Date())).to.equal(false);
@@ -322,6 +332,7 @@ describe('Tests for xto', function () {
       expect(xto.isNumber(NaN)).to.equal(true);
       expect(xto.isNumber(10n)).to.equal(false);
       expect(xto.isNumber(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isNumber(new BigUint64Array(2))).to.equal(false);
       expect(xto.isNumber('')).to.equal(false);
       expect(xto.isNumber(String(''))).to.equal(false);
       expect(xto.isNumber(new Date())).to.equal(false);
@@ -353,6 +364,7 @@ describe('Tests for xto', function () {
       expect(xto.isNumeric(NaN)).to.equal(true);
       expect(xto.isNumeric(10n)).to.equal(true);
       expect(xto.isNumeric(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isNumeric(new BigUint64Array(2))).to.equal(false);
       expect(xto.isNumeric('')).to.equal(false);
       expect(xto.isNumeric(String(''))).to.equal(false);
       expect(xto.isNumeric(new Date())).to.equal(false);
@@ -383,6 +395,7 @@ describe('Tests for xto', function () {
       expect(xto.isError(Number(10))).to.equal(false);
       expect(xto.isError(10n)).to.equal(false);
       expect(xto.isError(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isError(new BigUint64Array(2))).to.equal(false);
       expect(xto.isError('')).to.equal(false);
       expect(xto.isError(String(''))).to.equal(false);
       expect(xto.isError(new Date())).to.equal(false);
@@ -413,6 +426,7 @@ describe('Tests for xto', function () {
       expect(xto.isNull(Number(10))).to.equal(false);
       expect(xto.isNull(10n)).to.equal(false);
       expect(xto.isNull(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isNull(new BigUint64Array(2))).to.equal(false);
       expect(xto.isNull('')).to.equal(false);
       expect(xto.isNull(String(''))).to.equal(false);
       expect(xto.isNull(new Date())).to.equal(false);
@@ -443,6 +457,7 @@ describe('Tests for xto', function () {
       expect(xto.isUndefined(Number(10))).to.equal(false);
       expect(xto.isUndefined(10n)).to.equal(false);
       expect(xto.isUndefined(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isUndefined(new BigUint64Array(2))).to.equal(false);
       expect(xto.isUndefined('')).to.equal(false);
       expect(xto.isUndefined(String(''))).to.equal(false);
       expect(xto.isUndefined(new Date())).to.equal(false);
@@ -473,6 +488,7 @@ describe('Tests for xto', function () {
       expect(xto.isPromise(Number(10))).to.equal(false);
       expect(xto.isPromise(10n)).to.equal(false);
       expect(xto.isPromise(new BigInt64Array(2))).to.equal(false);
+      expect(xto.isPromise(new BigUint64Array(2))).to.equal(false);
       expect(xto.isPromise('')).to.equal(false);
       expect(xto.isPromise(String(''))).to.equal(false);
       expect(xto.isPromise(new Date())).to.equal(false);
@@ -508,6 +524,7 @@ describe('Tests for xto', function () {
       expect(xto.typeof(Number(10))).to.equal('number');
       expect(xto.typeof(10n)).to.equal('bigint');
       expect(xto.typeof(new BigInt64Array(2))).to.equal('bigint64array');
+      expect(xto.typeof(new BigUint64Array(2))).to.equal('biguint64array');
       expect(xto.typeof('')).to.equal('string');
       expect(xto.typeof(String(''))).to.equal('string');
       expect(xto.typeof(new Date())).to.equal('date');
@@ -542,6 +559,7 @@ describe('Tests for xto', function () {
       expect(xto.instance(Number(10))).to.equal('Number');
       expect(xto.instance(10n)).to.equal('BigInt');
       expect(xto.instance(new BigInt64Array(2))).to.equal('BigInt64Array');
+      expect(xto.instance(new BigUint64Array(2))).to.equal('BigUint64Array');
       expect(xto.instance('')).to.equal('String');
       expect(xto.instance(String(''))).to.equal('String');
       expect(xto.instance(new Date())).to.equal('Date');
@@ -578,6 +596,7 @@ describe('Tests for xto', function () {
       expect(xto.instances(Number(10))).to.eql(['Number', 'Object']);
       expect(xto.instances(10n)).to.eql(['BigInt', 'Object']);
       expect(xto.instances(new BigInt64Array(2))).to.eql(['BigInt64Array', 'TypedArray', 'Object']);
+      expect(xto.instances(new BigUint64Array(2))).to.eql(['BigUint64Array', 'TypedArray', 'Object']);
       expect(xto.instances('')).to.eql(['String', 'Object']);
       expect(xto.instances(String(''))).to.eql(['String', 'Object']);
       expect(xto.instances(new Date())).to.eql(['Date', 'Object']);

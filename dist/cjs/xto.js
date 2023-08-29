@@ -1,4 +1,4 @@
-/*v2.1.0|(c)2016-2023 Michael G Collins|https://github.com/intervalia/xtojs*/
+/*v2.2.0|(c)2016-2023 Michael G Collins|https://github.com/intervalia/xtojs*/
 let e={},t="@,Int8@,Uint8@,Uint8Clamped@,Int16@,Uint16@,Int32@,Uint32@,BigInt64@,BigUint64@,Float32@,Float64@,@Buffer,Map,WeakMap,Set,WeakSet,DataView,Object,Promise,String,Date,RegExp,Function,Boolean,Number,Error,Null,Undefined,BigInt,Symbol".replace(/@/g,"Array").split(","),r=e=>void 0===e?"Undefined":null===e?"Null":0,n=t=>{let r=e.typeof(t)
 return"array"===r?r:"array"===r.slice(-5)&&"typedarray"},a=e=>{let t=Object.getPrototypeOf(e),r=[t.constructor.name]
 return"Object"===r[0]?r:r.concat(a(t))}

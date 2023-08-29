@@ -5,7 +5,7 @@
   },
   "format": {
     "ecma": 2023,
-    "preamble": "/*v2.1.0|(c)2016-2023 Michael G Collins|https://github.com/intervalia/xtojs*/",
+    "preamble": "/*v2.2.0|(c)2016-2023 Michael G Collins|https://github.com/intervalia/xtojs*/",
     "semicolons": false
   },
   "mangle": {
